@@ -24,7 +24,7 @@ const DesktopLinks = () => {
       </li>
       <li>
         <Link
-          href="/"
+          href="/biography"
           className="transition duration-200 hover:text-neutral-500"
         >
           Biography
@@ -32,7 +32,7 @@ const DesktopLinks = () => {
       </li>
       <li>
         <Link
-          href="/"
+          href="/calander"
           className="transition duration-200 hover:text-neutral-500"
         >
           Calander
@@ -40,7 +40,7 @@ const DesktopLinks = () => {
       </li>
       <li>
         <Link
-          href="/"
+          href="/contact"
           className="transition duration-200 hover:text-neutral-500"
         >
           Contact
@@ -48,7 +48,7 @@ const DesktopLinks = () => {
       </li>
       <li>
         <Link
-          href="/"
+          href="/galary"
           className="transition duration-200 hover:text-neutral-500"
         >
           Galary
@@ -56,7 +56,7 @@ const DesktopLinks = () => {
       </li>
       <li>
         <Link
-          href="/"
+          href="/testimonials"
           className="duration-200hover:text-neutral-500 transition"
         >
           Testimonials

@@ -40,7 +40,7 @@ const MobileLinks = () => {
         </li>
         <li>
           <Link
-            href="/"
+            href="/biography"
             className="transition duration-200 hover:text-neutral-500"
           >
             Biography
@@ -48,7 +48,7 @@ const MobileLinks = () => {
         </li>
         <li>
           <Link
-            href="/"
+            href="calander"
             className="transition duration-200 hover:text-neutral-500"
           >
             Calander
@@ -56,7 +56,7 @@ const MobileLinks = () => {
         </li>
         <li>
           <Link
-            href="/"
+            href="/contact"
             className="transition duration-200 hover:text-neutral-500"
           >
             Contact
@@ -64,7 +64,7 @@ const MobileLinks = () => {
         </li>
         <li>
           <Link
-            href="/"
+            href="/galary"
             className="transition duration-200 hover:text-neutral-500"
           >
             Galary
@@ -72,7 +72,7 @@ const MobileLinks = () => {
         </li>
         <li>
           <Link
-            href="/"
+            href="/testimonials"
             className="transition duration-200 hover:text-neutral-500"
           >
             Testimonials

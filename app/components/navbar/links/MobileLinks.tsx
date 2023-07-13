@@ -15,6 +15,8 @@ const MobileLinks = () => {
         bg-red-500
         p-4
         shadow-md
+        duration-300
+        md:right-10
         lg:hidden
         ${isOpen ? "translate-y-0" : "translate-y-full"}
         ${isOpen ? "opacity-100" : "opacity-0"}
@@ -28,7 +30,7 @@ const MobileLinks = () => {
         lg:items-center
       `}
       >
-        <li className="">
+        <li>
           <Link
             href="/"
             className="transition duration-200 hover:text-neutral-500"

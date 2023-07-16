@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 
 const DesktopLinks = () => {
-  const [showNav, setShowNav] = useState(false);
-
   return (
     <ul
       className="

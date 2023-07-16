@@ -1,5 +1,10 @@
 import Image from "next/image";
 
 export default function Home() {
-  return <div className="">EVERYTHING EGO</div>;
+  return (
+    <div className="">
+      <h1 className="text-3xl font-bold">Welcome</h1>
+      EVERYTHING EGO
+    </div>
+  );
 }

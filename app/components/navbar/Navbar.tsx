@@ -19,7 +19,15 @@ function Navbar() {
             "
           >
             <h1 className="flex items-center gap-1 ">
-              <span className="border-r-[2px] border-r-black pr-1 text-3xl font-bold">
+              <span
+                className="
+                  border-r-[2px] 
+                  border-r-black 
+                  pr-1 
+                  text-4xl 
+                  font-bold
+                "
+              >
                 EGO
               </span>{" "}
               A Gift To The Soul

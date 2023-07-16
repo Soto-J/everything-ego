@@ -55,7 +55,7 @@ const DesktopLinks = () => {
       <li>
         <Link
           href="/testimonials"
-          className="duration-200hover:text-neutral-500 transition"
+          className="transition duration-200 hover:text-neutral-500"
         >
           Testimonials
         </Link>

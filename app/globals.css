@@ -7,3 +7,8 @@ body,
 :root {
   height: 100%;
 }
+
+/* CSS for accordion collapse animation */
+.ReactCollapse--collapse {
+  transition: height 500ms;
+}

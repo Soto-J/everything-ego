@@ -20,6 +20,7 @@ const MobileLinks = () => {
         lg:hidden
         ${isOpen ? "translate-y-0" : "translate-y-full"}
         ${isOpen ? "opacity-100" : "opacity-0"}
+        ${isOpen ? "pointer-events-auto" : "pointer-events-none"}
       `}
     >
       <ul

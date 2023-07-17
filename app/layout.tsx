@@ -1,3 +1,4 @@
+import Accordion from "./components/accordion/Accordion";
 import Footer from "./components/Footer";
 import Navbar from "./components/navbar/Navbar";
 import "./globals.css";
@@ -17,9 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} md:text-lg`}>
+      <body className={`${inter.className} min-h-full md:text-lg`}>
         <Navbar />
-        <main className="px-5 py-20 md:px-20 lg:px-28">{children}</main>
+        <main className="min-h-full px-5 pt-20 md:px-20 lg:px-28">
+          {children}
+          <Accordion />
+        </main>
         <Footer />
       </body>
     </html>

@@ -1,7 +1,7 @@
 import useNavDropDown from "@/app/hooks/useNavDropDown";
 import React, { use, useState } from "react";
-import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-
+import { AiOutlineClose } from "react-icons/ai";
+import { BsMusicNoteList } from "react-icons/bs";
 const NavButton = () => {
   const { isOpen, onClose, onOpen } = useNavDropDown();
 
@@ -18,7 +18,7 @@ const NavButton = () => {
           focus:outline-none 
           lg:hidden"
     >
-      {isOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
+      {isOpen ? <AiOutlineClose /> : <BsMusicNoteList />}
     </div>
   );
 };

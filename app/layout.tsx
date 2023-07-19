@@ -1,4 +1,4 @@
-import Accordion from "./components/accordion/Accordion";
+
 import Footer from "./components/Footer";
 import Navbar from "./components/navbar/Navbar";
 import "./globals.css";
@@ -22,7 +22,7 @@ export default function RootLayout({
         <Navbar />
         <main className="min-h-full px-5 pt-20 md:px-20 lg:px-28">
           {children}
-          <Accordion />
+          
         </main>
         <Footer />
       </body>

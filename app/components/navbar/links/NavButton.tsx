@@ -1,5 +1,5 @@
 import useNavDropDown from "@/app/hooks/useNavDropDown";
-import React, { use, useState } from "react";
+import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { BsMusicNoteList } from "react-icons/bs";
 const NavButton = () => {

@@ -27,6 +27,7 @@ const ContactForm = () => {
     <div className="mx-auto mt-8 max-w-lg">
       <form
         action=""
+        onSubmit={handleSubmit(onSubmit)}
         className=" 
           rounded-md 
           border 
@@ -68,7 +69,6 @@ const ContactForm = () => {
         />
 
         <button
-          onSubmit={handleSubmit(onSubmit)}
           className=" 
             w-30
             ml-auto 

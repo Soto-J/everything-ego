@@ -1,11 +1,10 @@
 import Image from "next/image";
-import bg from "../public/images/feb-22-concert-4-website.jpg";
 
 export default function Home() {
   return (
     <div>
       <Image
-        src="/images/feb-22-concert-4-website.jpg"
+        src="/images/Feb-22-concert-4-website.jpg"
         alt="EGO"
         fill
         style={{

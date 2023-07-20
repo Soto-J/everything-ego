@@ -28,6 +28,7 @@ export default function RootLayout({
               pt-20 
               md:px-20 
               lg:px-28
+              relative
             "
           >
             {children}

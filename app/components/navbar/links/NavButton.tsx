@@ -9,16 +9,23 @@ const NavButton = () => {
     <div
       onClick={isOpen ? onClose : onOpen}
       className="
-          cursor-pointer 
-          rounded-full 
-          border-2 
-          p-2 
-          transition 
-          duration-200 
-          focus:outline-none 
-          lg:hidden"
+        flex
+        h-10
+        w-10
+        cursor-pointer
+        items-center 
+        justify-center 
+        rounded-full 
+        border-2
+        border-black
+        p-2
+        transition 
+        duration-200 
+        focus:outline-none 
+        lg:hidden
+      "
     >
-      {isOpen ? <AiOutlineClose /> : <BsMusicNoteList />}
+      {isOpen ? <AiOutlineClose size={20} /> : <BsMusicNoteList size={20} />}
     </div>
   );
 };

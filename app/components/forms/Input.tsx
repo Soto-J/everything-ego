@@ -22,23 +22,43 @@ const Input: React.FC<InputProps> = ({
 }) => {
   return (
     <div className="relative">
-      <input
-        id={id}
-        type={type}
-        placeholder=" "
-        {...register(id, { required })}
-        className="
-          peer
-          w-full
-          border-2
-          p-4
-          font-light
-          outline-none
-          transition
-          disabled:cursor-not-allowed
-          disabled:opacity-70
-        "
-      />
+      {id !== "message" ? (
+        <input
+          id={id}
+          aria-invalid={errors.id ? "true" : "false"}
+          type={type}
+          placeholder=" "
+          {...register(id, { required })}
+          className="
+            peer
+            w-full
+            border-2
+            p-4
+            font-light
+            outline-none
+            transition
+            disabled:cursor-not-allowed
+            disabled:opacity-70
+          "
+        />
+      ) : (
+        <textarea
+          id={id}
+          placeholder=" "
+          {...register(id, { required })}
+          className="
+            peer
+            w-full
+            border-2
+            p-4
+            font-light
+            outline-none
+            transition
+            disabled:cursor-not-allowed
+            disabled:opacity-70
+          "
+        />
+      )}
       <label
         htmlFor=""
         className={`
@@ -60,7 +80,7 @@ const Input: React.FC<InputProps> = ({
           peer-focus:text-blue-600 
           dark:text-gray-400 
           peer-focus:dark:text-blue-500
-          ${errors[id] ? "text-rose-500" : "text-gray-500"}
+          ${errors.id ? "text-rose-500" : "text-gray-500"}
         `}
       >
         {label}

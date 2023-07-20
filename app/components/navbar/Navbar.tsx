@@ -4,7 +4,7 @@ import NavLinks from "./NavLinks";
 
 function Navbar() {
   return (
-    <div className="fixed z-10 w-full bg-white shadow-sm">
+    <div className="fixed z-10 w-full bg-white shadow-md">
       <div className="border-b-[1px] py-4">
         <Container>
           <div

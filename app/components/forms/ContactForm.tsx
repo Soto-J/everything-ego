@@ -11,6 +11,7 @@ const ContactForm = () => {
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
+      name: "",
       email: "",
       telephone: "",
       message: "",
@@ -19,6 +20,7 @@ const ContactForm = () => {
 
   const onSubmit = (data: FieldValues) => {
     console.log(data);
+    if (!data) return;
 
     reset();
   };

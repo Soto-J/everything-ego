@@ -1,7 +1,7 @@
 import React from "react";
 
 const page = () => {
-  return <div>calander</div>;
+  return <div>gallery</div>;
 };
 
 export default page;

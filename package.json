@@ -38,5 +38,8 @@
     "plugins": [
       "prettier-plugin-tailwindcss"
     ]
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": ["sharp", "unrs-resolver"]
   }
 }

@@ -55,10 +55,12 @@ export default function AppSidebar() {
                         href={path}
                         className={cn(
                           "flex items-center justify-between gap-3 px-4 py-3 italic",
-                          "rounded-lg transition-colors duration-200 md:text-lg",
+                          "rounded-lg transition-colors duration-200",
                         )}
                       >
-                        <span className="capitalize">{href}</span>
+                        <span className="text-base capitalize lg:text-lg">
+                          {href}
+                        </span>
 
                         <Activity mode={isActive ? "visible" : "hidden"}>
                           <GiMusicalNotes />

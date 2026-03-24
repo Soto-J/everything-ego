@@ -54,7 +54,9 @@ export default function ContactForm() {
         control={form.control}
         render={({ field, fieldState }) => (
           <Field>
-            <FieldLabel htmlFor={field.name}>{field.name}</FieldLabel>
+            <FieldLabel htmlFor={field.name} className="text-lg capitalize">
+              {field.name}
+            </FieldLabel>
             <Input
               {...field}
               id={field.name}
@@ -66,11 +68,13 @@ export default function ContactForm() {
       />
 
       <Controller
-        name="firstName"
+        name="lastName"
         control={form.control}
         render={({ field, fieldState }) => (
           <Field>
-            <FieldLabel htmlFor={field.name}>{field.name}</FieldLabel>
+            <FieldLabel htmlFor={field.name} className="text-lg capitalize">
+              {field.name}
+            </FieldLabel>
             <Input
               {...field}
               id={field.name}
@@ -86,7 +90,9 @@ export default function ContactForm() {
         control={form.control}
         render={({ field, fieldState }) => (
           <Field>
-            <FieldLabel htmlFor={field.name}>{field.name}</FieldLabel>
+            <FieldLabel htmlFor={field.name} className="text-lg capitalize">
+              {field.name}
+            </FieldLabel>
             <Input
               {...field}
               id={field.name}
@@ -102,7 +108,9 @@ export default function ContactForm() {
         control={form.control}
         render={({ field, fieldState }) => (
           <Field>
-            <FieldLabel htmlFor={field.name}>{field.name}</FieldLabel>
+            <FieldLabel htmlFor={field.name} className="text-lg capitalize">
+              {field.name}
+            </FieldLabel>
             <Input
               {...field}
               id={field.name}
@@ -118,7 +126,7 @@ export default function ContactForm() {
         control={form.control}
         render={({ field, fieldState }) => (
           <Field orientation="horizontal">
-            <FieldLabel htmlFor={field.name} className="capitalize">
+            <FieldLabel htmlFor={field.name} className="text-lg capitalize">
               {field.name}
             </FieldLabel>
 
@@ -129,7 +137,6 @@ export default function ContactForm() {
               onCheckedChange={field.onChange}
               onBlur={field.onBlur}
               ref={field.ref}
-              
             />
           </Field>
         )}
@@ -140,7 +147,7 @@ export default function ContactForm() {
         control={form.control}
         render={({ field, fieldState }) => (
           <Field>
-            <FieldLabel>{field.name}</FieldLabel>
+            <FieldLabel className="text-lg capitalize">{field.name}</FieldLabel>
 
             <Textarea
               {...field}

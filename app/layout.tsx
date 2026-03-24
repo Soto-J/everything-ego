@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond } from "next/font/google";
+import {
+  Cormorant_Garamond,
+  Great_Vibes,
+  Cormorant_Upright,
+  Pinyon_Script,
+} from "next/font/google";
 import { cn } from "@/lib/utils";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -20,6 +25,18 @@ const cormorantGaramond = Cormorant_Garamond({
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-cormorant",
 });
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+const cormorantUpright = Cormorant_Upright({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+const pinyonScript = Pinyon_Script({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export const metadata: Metadata = {
   title: "Ego",
@@ -35,7 +52,7 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang="en"
-      className={cn("h-full font-mono antialiased", cormorantGaramond.variable)}
+      className={cn("h-full font-mono antialiased", cormorantUpright.className)}
     >
       <body className="flex min-h-full flex-col">
         <ThemeProvider>

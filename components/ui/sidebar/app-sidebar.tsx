@@ -34,7 +34,7 @@ export default function AppSidebar() {
   return (
     <Sidebar variant="inset">
       <SidebarHeader className="flex items-center justify-center">
-        <span>EGO | A Gift To The Soul</span>
+        <span className="pt-6 text-xl">EGO | A Gift To The Soul</span>
       </SidebarHeader>
 
       <Separator className="via-secondary/60 my-4 h-px bg-linear-to-r from-transparent to-transparent" />
@@ -54,13 +54,11 @@ export default function AppSidebar() {
                       <Link
                         href={path}
                         className={cn(
-                          "flex items-center justify-between gap-3 px-4 py-3 italic",
+                          "flex items-center justify-between gap-3 px-4 py-3",
                           "rounded-lg transition-colors duration-200",
                         )}
                       >
-                        <span className="text-base capitalize lg:text-lg">
-                          {href}
-                        </span>
+                        <span className="text-xl capitalize">{href}</span>
 
                         <Activity mode={isActive ? "visible" : "hidden"}>
                           <GiMusicalNotes />

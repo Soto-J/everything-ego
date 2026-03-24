@@ -24,7 +24,7 @@ const NAVIGATION_ITEMS = [
   "home",
   "biography",
   "calendar",
-  "gallary",
+  "gallery",
   "testimonials",
   "contact",
 ];
@@ -37,7 +37,7 @@ export default function AppSidebar() {
         <span className="pt-6 text-xl">EGO | A Gift To The Soul</span>
       </SidebarHeader>
 
-      <Separator className="via-secondary/60 my-4 h-px bg-linear-to-r from-transparent to-transparent" />
+      <Separator className="via-primary my-4 h-px bg-linear-to-r from-transparent to-transparent" />
 
       <SidebarContent>
         <SidebarMenu>

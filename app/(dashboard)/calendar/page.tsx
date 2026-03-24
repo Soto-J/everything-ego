@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 
+import { cn } from "@/lib/utils";
+
 import { Calendar, CalendarDayButton } from "@/components/ui/calendar";
 import { Card, CardContent } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 
 export default function CalendarPage() {
   const [date, setDate] = useState<Date | undefined>(new Date());

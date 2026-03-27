@@ -4,6 +4,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 
+import { contactFormSchema } from "../types/schema";
+
+import FieldErrorMessage from "@/components/field-error-message";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button";
 import {
   Field,
   FieldContent,
@@ -11,23 +18,9 @@ import {
   FieldError,
   FieldGroup,
   FieldLabel,
-  FieldLegend,
-  FieldSeparator,
   FieldSet,
   FieldTitle,
 } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
-
-const contactFormSchema = z.object({
-  firstName: z.string().min(1, "Field cannot be empty."),
-  lastName: z.string().min(1, "Field cannot be empty."),
-  email: z.email(),
-  phoneNumber: z.string(),
-  message: z.string(),
-  subscribe: z.boolean().nullable(),
-});
 
 export default function ContactForm() {
   const form = useForm<z.infer<typeof contactFormSchema>>({
@@ -47,117 +40,171 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={form.handleSubmit(onSubmit)}
-      className="border-primary mx-auto max-w-2xl space-y-4 rounded border p-4"
+      className="border-primary rounded border-2 p-4 shadow"
     >
-      <Controller
-        name="firstName"
-        control={form.control}
-        render={({ field, fieldState }) => (
-          <Field>
-            <FieldLabel htmlFor={field.name} className="text-lg capitalize">
-              {field.name}
-            </FieldLabel>
-            <Input
-              {...field}
-              id={field.name}
-              aria-invalid={fieldState.invalid}
-              placeholder="John"
+      <FieldGroup>
+        <FieldSet>
+          <Field
+            //  className="flex items-center gap-8"
+            orientation="horizontal"
+          >
+            <Controller
+              name="firstName"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel
+                    htmlFor={field.name}
+                    className="text-lg capitalize"
+                  >
+                    {field.name}
+                  </FieldLabel>
+
+                  <Input
+                    {...field}
+                    id={field.name}
+                    aria-invalid={fieldState.invalid}
+                    placeholder="John"
+                    className="border-primary"
+                  />
+
+                  <FieldErrorMessage error={fieldState.error} />
+                </Field>
+              )}
+            />
+
+            <Controller
+              name="lastName"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel
+                    htmlFor={field.name}
+                    className="text-lg capitalize"
+                  >
+                    {field.name}
+                  </FieldLabel>
+
+                  <Input
+                    {...field}
+                    id={field.name}
+                    aria-invalid={fieldState.invalid}
+                    placeholder="Smith"
+                    className="border-primary"
+                  />
+
+                  <FieldErrorMessage error={fieldState.error} />
+                </Field>
+              )}
             />
           </Field>
-        )}
-      />
 
-      <Controller
-        name="lastName"
-        control={form.control}
-        render={({ field, fieldState }) => (
-          <Field>
-            <FieldLabel htmlFor={field.name} className="text-lg capitalize">
-              {field.name}
-            </FieldLabel>
-            <Input
-              {...field}
-              id={field.name}
-              aria-invalid={fieldState.invalid}
-              placeholder="Smith"
-            />
-          </Field>
-        )}
-      />
+          <Controller
+            name="email"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel htmlFor={field.name} className="text-lg capitalize">
+                  {field.name}
+                </FieldLabel>
 
-      <Controller
-        name="email"
-        control={form.control}
-        render={({ field, fieldState }) => (
-          <Field>
-            <FieldLabel htmlFor={field.name} className="text-lg capitalize">
-              {field.name}
-            </FieldLabel>
-            <Input
-              {...field}
-              id={field.name}
-              aria-invalid={fieldState.invalid}
-              placeholder="johnsmith@example.com"
-            />
-          </Field>
-        )}
-      />
+                <Input
+                  {...field}
+                  id={field.name}
+                  aria-invalid={fieldState.invalid}
+                  placeholder="johnsmith@example.com"
+                  className="border-primary"
+                />
 
-      <Controller
-        name="phoneNumber"
-        control={form.control}
-        render={({ field, fieldState }) => (
-          <Field>
-            <FieldLabel htmlFor={field.name} className="text-lg capitalize">
-              {field.name}
-            </FieldLabel>
-            <Input
-              {...field}
-              id={field.name}
-              aria-invalid={fieldState.invalid}
-              placeholder="(999) 999 - 9999"
-            />
-          </Field>
-        )}
-      />
+                <FieldErrorMessage error={fieldState.error} />
+              </Field>
+            )}
+          />
 
-      <Controller
-        name="subscribe"
-        control={form.control}
-        render={({ field, fieldState }) => (
-          <Field orientation="horizontal">
-            <FieldLabel htmlFor={field.name} className="text-lg capitalize">
-              {field.name}
-            </FieldLabel>
+          <Controller
+            name="phoneNumber"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel htmlFor={field.name} className="text-lg capitalize">
+                  Phone Number
+                </FieldLabel>
 
-            <Checkbox
-              id={field.name}
-              name={field.name}
-              checked={field.value ?? false}
-              onCheckedChange={field.onChange}
-              onBlur={field.onBlur}
-              ref={field.ref}
-            />
-          </Field>
-        )}
-      />
+                <Input
+                  {...field}
+                  id={field.name}
+                  aria-invalid={fieldState.invalid}
+                  placeholder="(999) 999 - 9999"
+                  className="border-primary"
+                />
 
-      <Controller
-        name="message"
-        control={form.control}
-        render={({ field, fieldState }) => (
-          <Field>
-            <FieldLabel className="text-lg capitalize">{field.name}</FieldLabel>
+                <FieldErrorMessage error={fieldState.error} />
+              </Field>
+            )}
+          />
 
-            <Textarea
-              {...field}
-              id={field.name}
-              aria-invalid={fieldState.invalid}
-              placeholder="(999) 999 - 9999"
-            />
-          </Field>
-        )}
-      />
+          <Controller
+            name="subscribe"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid} className="pt-2">
+                <FieldDescription className="font-semibold">
+                  Would you like to join our email list?
+                </FieldDescription>
+
+                <div className="flex items-center gap-4">
+                  <FieldLabel
+                    htmlFor={field.name}
+                    className="text-lg capitalize"
+                  >
+                    {field.name}
+                  </FieldLabel>
+
+                  <Checkbox
+                    id={field.name}
+                    name={field.name}
+                    checked={field.value ?? false}
+                    onCheckedChange={field.onChange}
+                    onBlur={field.onBlur}
+                    ref={field.ref}
+                    className="border-primary"
+                  />
+                </div>
+              </Field>
+            )}
+          />
+
+          <Controller
+            name="message"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel className="text-lg capitalize">
+                  {field.name}
+                </FieldLabel>
+
+                <Textarea
+                  {...field}
+                  id={field.name}
+                  aria-invalid={fieldState.invalid}
+                  placeholder="Your message..."
+                  className="border-primary"
+                />
+
+                <FieldErrorMessage error={fieldState.error} />
+              </Field>
+            )}
+          />
+
+          <Button
+            type="submit"
+            size="lg"
+            className="mt-4 ml-auto w-fit rounded font-semibold"
+          >
+            Submit
+          </Button>
+        </FieldSet>
+      </FieldGroup>
     </form>
   );
 }

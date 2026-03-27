@@ -42,12 +42,9 @@ export default function ContactForm() {
       onSubmit={form.handleSubmit(onSubmit)}
       className="border-primary rounded border-2 p-4 shadow"
     >
-      <FieldGroup>
-        <FieldSet>
-          <Field
-            //  className="flex items-center gap-8"
-            orientation="horizontal"
-          >
+      <FieldSet>
+        <FieldGroup className="">
+          <Field orientation="horizontal" className="items-start">
             <Controller
               name="firstName"
               control={form.control}
@@ -65,7 +62,7 @@ export default function ContactForm() {
                     id={field.name}
                     aria-invalid={fieldState.invalid}
                     placeholder="John"
-                    className="border-primary"
+                    className="border-primary focus:border-primary"
                   />
 
                   <FieldErrorMessage error={fieldState.error} />
@@ -90,7 +87,7 @@ export default function ContactForm() {
                     id={field.name}
                     aria-invalid={fieldState.invalid}
                     placeholder="Smith"
-                    className="border-primary"
+                    className="border-primary focus:border-primary"
                   />
 
                   <FieldErrorMessage error={fieldState.error} />
@@ -103,7 +100,7 @@ export default function ContactForm() {
             name="email"
             control={form.control}
             render={({ field, fieldState }) => (
-              <Field data-invalid={fieldState.invalid}>
+              <Field data-invalid={fieldState.invalid} className="">
                 <FieldLabel htmlFor={field.name} className="text-lg capitalize">
                   {field.name}
                 </FieldLabel>
@@ -113,7 +110,7 @@ export default function ContactForm() {
                   id={field.name}
                   aria-invalid={fieldState.invalid}
                   placeholder="johnsmith@example.com"
-                  className="border-primary"
+                  className="border-primary focus:border-primary"
                 />
 
                 <FieldErrorMessage error={fieldState.error} />
@@ -195,16 +192,16 @@ export default function ContactForm() {
               </Field>
             )}
           />
+        </FieldGroup>
 
-          <Button
-            type="submit"
-            size="lg"
-            className="mt-4 ml-auto w-fit rounded font-semibold"
-          >
-            Submit
-          </Button>
-        </FieldSet>
-      </FieldGroup>
+        <Button
+          type="submit"
+          size="lg"
+          className="mt-4 ml-auto w-fit rounded font-semibold"
+        >
+          Submit
+        </Button>
+      </FieldSet>
     </form>
   );
 }

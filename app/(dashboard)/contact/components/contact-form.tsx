@@ -4,7 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 
-import { contactFormSchema } from "../types/schema";
+import { ContactFormSchema } from "../types/schema";
+import type { ContactFormType } from "../types";
 
 import FieldErrorMessage from "@/components/field-error-message";
 import { Input } from "@/components/ui/input";
@@ -13,18 +14,16 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import {
   Field,
-  FieldContent,
   FieldDescription,
-  FieldError,
   FieldGroup,
   FieldLabel,
   FieldSet,
-  FieldTitle,
 } from "@/components/ui/field";
+import { sendEmail } from "@/app/actions/sendEmail";
 
 export default function ContactForm() {
-  const form = useForm<z.infer<typeof contactFormSchema>>({
-    resolver: zodResolver(contactFormSchema),
+  const form = useForm<ContactFormType>({
+    resolver: zodResolver(ContactFormSchema),
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -35,19 +34,19 @@ export default function ContactForm() {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof contactFormSchema>) => {};
+  const onSubmit = async (data: ContactFormType) => {
+    await sendEmail(data);
+  };
 
   return (
     <form
+      autoComplete="off"
       onSubmit={form.handleSubmit(onSubmit)}
       className="border-primary rounded border-2 p-4 shadow"
     >
-      <FieldGroup>
-        <FieldSet>
-          <Field
-            //  className="flex items-center gap-8"
-            orientation="horizontal"
-          >
+      <FieldSet>
+        <FieldGroup className="">
+          <Field orientation="horizontal" className="items-start">
             <Controller
               name="firstName"
               control={form.control}
@@ -65,7 +64,7 @@ export default function ContactForm() {
                     id={field.name}
                     aria-invalid={fieldState.invalid}
                     placeholder="John"
-                    className="border-primary"
+                    // className="border-primary"
                   />
 
                   <FieldErrorMessage error={fieldState.error} />
@@ -90,7 +89,7 @@ export default function ContactForm() {
                     id={field.name}
                     aria-invalid={fieldState.invalid}
                     placeholder="Smith"
-                    className="border-primary"
+                    // className="border-primary focus:border-primary"
                   />
 
                   <FieldErrorMessage error={fieldState.error} />
@@ -103,7 +102,7 @@ export default function ContactForm() {
             name="email"
             control={form.control}
             render={({ field, fieldState }) => (
-              <Field data-invalid={fieldState.invalid}>
+              <Field data-invalid={fieldState.invalid} className="">
                 <FieldLabel htmlFor={field.name} className="text-lg capitalize">
                   {field.name}
                 </FieldLabel>
@@ -113,7 +112,7 @@ export default function ContactForm() {
                   id={field.name}
                   aria-invalid={fieldState.invalid}
                   placeholder="johnsmith@example.com"
-                  className="border-primary"
+                  // className="border-primary focus:border-primary"
                 />
 
                 <FieldErrorMessage error={fieldState.error} />
@@ -195,16 +194,16 @@ export default function ContactForm() {
               </Field>
             )}
           />
+        </FieldGroup>
 
-          <Button
-            type="submit"
-            size="lg"
-            className="mt-4 ml-auto w-fit rounded font-semibold"
-          >
-            Submit
-          </Button>
-        </FieldSet>
-      </FieldGroup>
+        <Button
+          type="submit"
+          size="lg"
+          className="mt-4 ml-auto w-fit rounded font-semibold"
+        >
+          Submit
+        </Button>
+      </FieldSet>
     </form>
   );
 }

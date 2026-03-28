@@ -5,9 +5,13 @@ interface FormErrorMessageProps {
   error?: FieldErrorType;
 }
 export default function FieldErrorMessage({ error }: FormErrorMessageProps) {
+  if (!error) {
+    return null;
+  }
+
   return (
     <div className="min-h-4">
-      {error && <FieldError errors={[error]} />}
+      <FieldError errors={[error]} />
     </div>
   );
 }

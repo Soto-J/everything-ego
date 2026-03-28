@@ -226,9 +226,9 @@
 }
 
 @layer base {
-  * {
+  /* * {
     @apply border-border outline-ring/50;
-  }
+  } */
   body {
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
@@ -240,5 +240,19 @@
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
+  }
+}
+
+/* Removes LastPass Icon */
+/* [data-lastpass-icon-root],
+[id^="lastpass"],
+[class^="lastpass"] {
+  display: none !important;
+} */
+
+/* Removes LastPass Icon */
+@layer utilities {
+  [data-lastpass-icon-root] {
+    @apply hidden!;
   }
 }

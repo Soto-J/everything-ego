@@ -66,7 +66,7 @@ export default function RootLayout({
                   className="border-sidebar-border/70 hover:border-sidebar-primary/50 hover:bg-sidebar-accent/10 hover:shadow-sidebar-primary/10 focus-visible:border-sidebar-primary focus-visible:ring-sidebar-primary/20 mt-4 ml-4 size-9 transition-all duration-200 hover:scale-[1.02] hover:shadow-md active:scale-[0.98]"
                   aria-controls="main-sidebar"
                 />
-                <main className="p-8">{children}</main>
+                <main className="relative flex flex-1 flex-col">{children}</main>
               </SidebarInset>
             </SidebarProvider>
           </TooltipProvider>

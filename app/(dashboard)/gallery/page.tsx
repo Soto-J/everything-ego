@@ -2,11 +2,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function GalleryPage() {
   const TAB_LIST = ["images", "videos"];
-  
+
   return (
     <div>
-      <h2>GallaryPage</h2>
-
       <Tabs defaultValue="images" className="">
         <TabsList variant="line" className="mx-auto rounded shadow">
           <TabsTrigger value="images" className="rounded text-lg">

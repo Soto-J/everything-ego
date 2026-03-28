@@ -12,8 +12,6 @@ export default function CalendarPage() {
 
   return (
     <div>
-      <h2>Calendar Page</h2>
-
       <Card className="mx-auto w-fit rounded-lg p-0 shadow">
         <CardContent className="p-0">
           <Calendar

@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from "zod/v4";
 
 export const ContactFormSchema = z.object({
   firstName: z.string().min(1, "Field cannot be empty."),

@@ -8,6 +8,7 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
     <InputPrimitive
       type={type}
       data-slot="input"
+      data-lpignore="true"
       className={cn(
         "file:text-foreground file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-xs file:font-medium",
         "dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive aria-invalid:ring-destructive/20",

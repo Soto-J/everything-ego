@@ -12,7 +12,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import {
   Field,
-  FieldDescription,
   FieldGroup,
   FieldLabel,
   FieldSet,
@@ -36,60 +35,50 @@ export default function ContactForm() {
     await sendEmail(data);
   };
 
+  const labelClass = "text-xs tracking-widest text-muted-foreground uppercase";
+
   return (
     <form
       autoComplete="off"
       onSubmit={form.handleSubmit(onSubmit)}
-      className="border-primary rounded border-2 p-4 shadow"
+      className="w-full max-w-lg"
     >
       <FieldSet>
-        <FieldGroup className="">
-          <Field orientation="horizontal" className="items-start">
+        <FieldGroup>
+          {/* First + Last name row */}
+          <Field orientation="horizontal" className="items-start gap-4">
             <Controller
               name="firstName"
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel
-                    htmlFor={field.name}
-                    className="text-lg capitalize"
-                  >
-                    {field.name}
+                  <FieldLabel htmlFor={field.name} className={labelClass}>
+                    First Name
                   </FieldLabel>
-
                   <Input
                     {...field}
                     id={field.name}
                     aria-invalid={fieldState.invalid}
                     placeholder="John"
-                    // className="border-primary"
                   />
-
                   <FieldErrorMessage error={fieldState.error} />
                 </Field>
               )}
             />
-
             <Controller
               name="lastName"
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel
-                    htmlFor={field.name}
-                    className="text-lg capitalize"
-                  >
-                    {field.name}
+                  <FieldLabel htmlFor={field.name} className={labelClass}>
+                    Last Name
                   </FieldLabel>
-
                   <Input
                     {...field}
                     id={field.name}
                     aria-invalid={fieldState.invalid}
                     placeholder="Smith"
-                    // className="border-primary focus:border-primary"
                   />
-
                   <FieldErrorMessage error={fieldState.error} />
                 </Field>
               )}
@@ -100,19 +89,16 @@ export default function ContactForm() {
             name="email"
             control={form.control}
             render={({ field, fieldState }) => (
-              <Field data-invalid={fieldState.invalid} className="">
-                <FieldLabel htmlFor={field.name} className="text-lg capitalize">
-                  {field.name}
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel htmlFor={field.name} className={labelClass}>
+                  Email Address
                 </FieldLabel>
-
                 <Input
                   {...field}
                   id={field.name}
                   aria-invalid={fieldState.invalid}
                   placeholder="johnsmith@example.com"
-                  // className="border-primary focus:border-primary"
                 />
-
                 <FieldErrorMessage error={fieldState.error} />
               </Field>
             )}
@@ -123,50 +109,16 @@ export default function ContactForm() {
             control={form.control}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={field.name} className="text-lg capitalize">
+                <FieldLabel htmlFor={field.name} className={labelClass}>
                   Phone Number
                 </FieldLabel>
-
                 <Input
                   {...field}
                   id={field.name}
                   aria-invalid={fieldState.invalid}
                   placeholder="(999) 999 - 9999"
-                  className="border-primary"
                 />
-
                 <FieldErrorMessage error={fieldState.error} />
-              </Field>
-            )}
-          />
-
-          <Controller
-            name="subscribe"
-            control={form.control}
-            render={({ field, fieldState }) => (
-              <Field data-invalid={fieldState.invalid} className="pt-2">
-                <FieldDescription className="font-semibold">
-                  Would you like to join our email list?
-                </FieldDescription>
-
-                <div className="flex items-center gap-4">
-                  <FieldLabel
-                    htmlFor={field.name}
-                    className="text-lg capitalize"
-                  >
-                    {field.name}
-                  </FieldLabel>
-
-                  <Checkbox
-                    id={field.name}
-                    name={field.name}
-                    checked={field.value ?? false}
-                    onCheckedChange={field.onChange}
-                    onBlur={field.onBlur}
-                    ref={field.ref}
-                    className="border-primary"
-                  />
-                </div>
               </Field>
             )}
           />
@@ -176,20 +128,41 @@ export default function ContactForm() {
             control={form.control}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
-                <FieldLabel className="text-lg capitalize">
-                  {field.name}
+                <FieldLabel htmlFor={field.name} className={labelClass}>
+                  Message
                 </FieldLabel>
-
                 <Textarea
                   {...field}
                   id={field.name}
                   aria-invalid={fieldState.invalid}
-                  placeholder="Your message..."
-                  className="border-primary"
+                  placeholder="Tell us about your event or inquiry..."
+                  className="min-h-28 resize-none"
                 />
-
                 <FieldErrorMessage error={fieldState.error} />
               </Field>
+            )}
+          />
+
+          <Controller
+            name="subscribe"
+            control={form.control}
+            render={({ field }) => (
+              <div className="flex items-center justify-between border-t border-border pt-4">
+                <div>
+                  <p className={labelClass}>Join the email list</p>
+                  <p className="mt-0.5 text-xs text-muted-foreground">
+                    Stay updated on performances and events
+                  </p>
+                </div>
+                <Checkbox
+                  id={field.name}
+                  name={field.name}
+                  checked={field.value ?? false}
+                  onCheckedChange={field.onChange}
+                  onBlur={field.onBlur}
+                  ref={field.ref}
+                />
+              </div>
             )}
           />
         </FieldGroup>
@@ -197,9 +170,9 @@ export default function ContactForm() {
         <Button
           type="submit"
           size="lg"
-          className="mt-4 ml-auto w-fit rounded font-semibold"
+          className="mt-6 w-full rounded tracking-widest uppercase"
         >
-          Submit
+          Send Message
         </Button>
       </FieldSet>
     </form>

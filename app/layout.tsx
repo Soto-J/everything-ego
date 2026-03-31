@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import { Cormorant_Upright } from "next/font/google";
 import { cn } from "@/lib/utils";
 
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { ThemeProvider } from "@/components/theme-provider";
-
 import AppHeader from "@/components/app-header";
 import AppSidebar from "@/components/ui/sidebar/app-sidebar";
+import Providers from "@/components/providers";
 
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarInset } from "@/components/ui/sidebar";
+import { Toaster } from "@/components/ui/sonner";
 
 import "./globals.css";
 
@@ -34,21 +33,16 @@ export default function RootLayout({
       className={cn("h-full font-mono antialiased", cormorantUpright.className)}
     >
       <body className="flex min-h-full flex-col">
-        <ThemeProvider>
-          <TooltipProvider>
-            <SidebarProvider>
-              <AppSidebar />
+        <Providers>
+          <AppSidebar />
 
-              <SidebarInset>
-                <AppHeader />
+          <SidebarInset>
+            <AppHeader />
 
-                <main className="relative flex flex-1 flex-col">
-                  {children}
-                </main>
-              </SidebarInset>
-            </SidebarProvider>
-          </TooltipProvider>
-        </ThemeProvider>
+            <main className="relative flex flex-1 flex-col">{children}</main>
+            <Toaster />
+          </SidebarInset>
+        </Providers>
       </body>
     </html>
   );

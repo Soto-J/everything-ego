@@ -11,12 +11,31 @@ import { cn } from "@/lib/utils";
 
 import { SidebarTrigger } from "./ui/sidebar";
 
-const linkClasses = "flex opacity-70 transition-opacity hover:opacity-100";
-
 export default function AppHeader() {
   const pathName = usePathname();
 
   const route = pathName === "/" ? "home" : pathName.slice(1);
+
+  const socialLinks = [
+    {
+      title: "You Tube",
+      icon: ImYoutube2,
+      size: 40,
+      href: "https://youtube.com/@eazy360?si=1t_TmxJERBcXxHpZ",
+    },
+    {
+      title: "Instagram",
+      icon: CiInstagram,
+      size: 30,
+      href: "https://www.instagram.com/eazy360?igsh=aWoxamFqZTIwMnN0&utm_source=qr",
+    },
+    {
+      title: "Face Book",
+      icon: CiFacebook,
+      size: 30,
+      href: "https://www.facebook.com/share/1DShFGdeh6/?mibextid=wwXIfr",
+    },
+  ];
 
   return (
     <div className="bg-primary/10 border-border/50 flex w-full items-center justify-between gap-4 border-b pr-3">
@@ -35,27 +54,17 @@ export default function AppHeader() {
       </div>
 
       <div className="flex items-center gap-3">
-        <Link
-          href="https://youtube.com/@eazy360?si=1t_TmxJERBcXxHpZ"
-          target="_blank"
-          className={linkClasses}
-        >
-          <ImYoutube2 size={40} />
-        </Link>
-        <Link
-          href="https://www.instagram.com/eazy360?igsh=aWoxamFqZTIwMnN0&utm_source=qr"
-          target="_blank"
-          className={linkClasses}
-        >
-          <CiInstagram size={30} />
-        </Link>
-        <Link
-          href="https://www.facebook.com/share/1DShFGdeh6/?mibextid=wwXIfr"
-          target="_blank"
-          className={linkClasses}
-        >
-          <CiFacebook size={30} />
-        </Link>
+        {socialLinks.map(({ title, href, icon: Icon, size }) => (
+          <Link
+            key={title}
+            href={href}
+            rel="noopener noreferrer"
+            aria-label={`Visit ÉGO on ${title}`}
+            className="flex opacity-70 transition-opacity hover:opacity-100"
+          >
+            <Icon size={size} />
+          </Link>
+        ))}
       </div>
     </div>
   );

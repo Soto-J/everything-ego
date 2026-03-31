@@ -27,7 +27,7 @@ const formSchema = z
     confirmPassword: z.string().min(1, { message: "Password is required" }),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords dont't match",
+    message: "Passwords don't match",
     path: ["confirmPassword"],
   });
 
@@ -109,7 +109,7 @@ export default function SignUpView() {
               <div className="flex flex-col items-center text-center">
                 <h1 className="text-2xl font-bold">Welcome back ÉGO!</h1>
                 <p className="text-muted-foreground font-semibold text-balance">
-                  Login to your account
+                  Create your account
                 </p>
               </div>
 

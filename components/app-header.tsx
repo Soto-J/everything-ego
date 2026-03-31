@@ -59,6 +59,7 @@ export default function AppHeader() {
             key={title}
             href={href}
             rel="noopener noreferrer"
+            target="_blank"
             aria-label={`Visit ÉGO on ${title}`}
             className="flex opacity-70 transition-opacity hover:opacity-100"
           >

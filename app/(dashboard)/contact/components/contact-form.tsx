@@ -5,18 +5,14 @@ import { Controller, useForm } from "react-hook-form";
 import { ContactFormSchema } from "../types/schema";
 import type { ContactFormType } from "../types";
 
+import { sendEmail } from "@/app/actions/sendEmail";
+
 import FieldErrorMessage from "@/components/field-error-message";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
-import {
-  Field,
-  FieldGroup,
-  FieldLabel,
-  FieldSet,
-} from "@/components/ui/field";
-import { sendEmail } from "@/app/actions/sendEmail";
+import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field";
 
 export default function ContactForm() {
   const form = useForm<ContactFormType>({
@@ -45,7 +41,6 @@ export default function ContactForm() {
     >
       <FieldSet>
         <FieldGroup>
-          {/* First + Last name row */}
           <Field orientation="horizontal" className="items-start gap-4">
             <Controller
               name="firstName"
@@ -147,10 +142,10 @@ export default function ContactForm() {
             name="subscribe"
             control={form.control}
             render={({ field }) => (
-              <div className="flex items-center justify-between border-t border-border pt-4">
+              <div className="border-border flex items-center justify-between border-t pt-4">
                 <div>
                   <p className={labelClass}>Join the email list</p>
-                  <p className="mt-0.5 text-xs text-muted-foreground">
+                  <p className="text-muted-foreground mt-0.5 text-xs">
                     Stay updated on performances and events
                   </p>
                 </div>

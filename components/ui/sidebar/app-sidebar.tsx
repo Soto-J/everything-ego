@@ -1,13 +1,17 @@
 "use client";
 
+import { Activity } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 
+import { authClient } from "@/lib/auth/auth-client";
 import { GiMusicalNotes } from "react-icons/gi";
+import { IoIosLogOut } from "react-icons/io";
 
 import { Separator } from "@/components/ui/separator";
+import { Button } from "../button";
 import {
   Sidebar,
   SidebarContent,
@@ -18,7 +22,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { Activity } from "react";
 
 const NAVIGATION_ITEMS = [
   "home",
@@ -31,6 +34,13 @@ const NAVIGATION_ITEMS = [
 
 export default function AppSidebar() {
   const pathName = usePathname();
+
+  const {
+    data: session,
+    isPending, //loading state
+    error, //error object
+  } = authClient.useSession();
+
   return (
     <Sidebar variant="inset">
       <SidebarHeader className="flex items-center justify-center">
@@ -74,6 +84,15 @@ export default function AppSidebar() {
           </SidebarGroup>
         </SidebarMenu>
       </SidebarContent>
+
+      <Activity mode={session?.user ? "visible" : "hidden"}>
+        <SidebarFooter>
+          <Button onClick={() => authClient.signOut()}>
+            Logout
+            <IoIosLogOut />
+          </Button>
+        </SidebarFooter>
+      </Activity>
     </Sidebar>
   );
 }

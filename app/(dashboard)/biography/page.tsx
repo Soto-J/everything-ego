@@ -13,8 +13,8 @@ const PULL_QUOTE =
   "Initially, playing the trumpet was largely to hide my broken English vernacular from my peers so as not to be teased; but over the years, it has grown to be an extension of myself.";
 
 const AWARDS = [
-  "Manhattan School of Music — Eisenberg-Fried Concerto Competition Winner",
   "New York Knicks' That's NY Talent — Halftime Entertainment Competition Winner",
+  "Manhattan School of Music — Eisenberg-Fried Concerto Competition Winner",
   "Manhattan School of Music Educational Assistance Program Scholarship",
   "South Carolina State University Marching Band Scholarship",
   "SCSU Marching 101 Outstanding Musicianship Award",
@@ -42,10 +42,11 @@ export default function BiographyPage() {
             <div className="relative aspect-2/3 w-full overflow-hidden">
               <Image
                 priority
+                fill
                 src="/images/Eganam Segbefia Headshot.jpg"
                 alt="Eganam ÉGO Segbefia"
-                fill
                 className="object-cover object-top"
+                sizes="(min-width: 1024px) 340px, 100vw"
               />
             </div>
             <p className="text-muted-foreground mt-3 text-xs tracking-widest uppercase">

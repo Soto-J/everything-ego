@@ -42,11 +42,12 @@ export default function BiographyPage() {
             <div className="relative aspect-2/3 w-full overflow-hidden">
               <Image
                 priority
+                fill
                 src="/images/Eganam Segbefia Headshot.jpg"
                 alt="Eganam ÉGO Segbefia"
-                fill
                 className="object-cover object-top"
               />
+              {/* [browser] Image with src "/images/Eganam Segbefia Headshot.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes */}
             </div>
             <p className="text-muted-foreground mt-3 text-xs tracking-widest uppercase">
               Photo · New York City

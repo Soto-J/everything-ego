@@ -6,14 +6,15 @@ export default function Home() {
     <div className="absolute inset-0 overflow-hidden">
       <Image
         priority
+        fill
         src="/images/Eganam Segbefia Boglioli hero.jpg"
         alt="Eganam ÉGO Segbefia"
-        fill
-        className="object-cover object-center"
+        sizes="100vw"
+        className="object-cover object-top blur-[0.5px]"
       />
 
       {/* Gradient overlay — dark at bottom, transparent at top */}
-      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
 
       {/* Text content — pinned to bottom left */}
       <div className="text-primary-foreground absolute bottom-0 left-0 p-10 md:p-14">
@@ -34,7 +35,7 @@ export default function Home() {
         <div className="flex gap-4 text-sm tracking-widest uppercase">
           <Link
             href="/biography"
-            className="border-primary-foreground/40 border px-6 py-2.5 transition-colors duration-300 hover:bg-white hover:text-black"
+            className="border-primary-foreground/40 flex items-center border px-6 py-2.5 transition-colors duration-300 hover:bg-white hover:text-black"
           >
             Biography
           </Link>

@@ -34,7 +34,9 @@ export default function AppSidebar() {
   return (
     <Sidebar variant="inset">
       <SidebarHeader className="flex items-center justify-center">
-        <span className="pt-6 text-xl">EGO | A Gift To The Soul</span>
+        <div className="pt-6 text-xl">
+          <span className="font-medium">ÉGO</span> | A Gift To The Soul
+        </div>
       </SidebarHeader>
 
       <Separator className="via-primary my-4 h-px bg-linear-to-r from-transparent to-transparent" />

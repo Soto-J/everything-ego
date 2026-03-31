@@ -2,7 +2,7 @@
 
 import { ContactFormType } from "@/app/(dashboard)/contact/types";
 
-import { resend } from "./resend";
+import { resend } from "../../lib/resend";
 
 // const MY_EMAIL = "soto.ja415@gmail.com";
 const MY_EMAIL = "info@everythingego.com";

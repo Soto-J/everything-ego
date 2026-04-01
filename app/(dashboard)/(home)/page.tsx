@@ -34,10 +34,10 @@ export default function Home() {
 
         <div className="flex gap-4 text-sm tracking-widest uppercase">
           <Link
-            href="/biography"
+            href="/about"
             className="border-primary-foreground/40 flex items-center border px-6 py-2.5 transition-colors duration-300 hover:bg-white hover:text-black"
           >
-            Biography
+            About
           </Link>
           <Link
             href="/contact"

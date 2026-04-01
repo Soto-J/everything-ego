@@ -21,7 +21,7 @@ const AWARDS = [
   "Celia Cruz Bronx High School of Music — Most Improved Award",
 ];
 
-export default function BiographyPage() {
+export default function AboutPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
       <div className="mb-10">

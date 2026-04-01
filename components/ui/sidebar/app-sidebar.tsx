@@ -25,7 +25,7 @@ import {
 
 const NAVIGATION_ITEMS = [
   "home",
-  "biography",
+  "about",
   "calendar",
   "gallery",
   "testimonials",

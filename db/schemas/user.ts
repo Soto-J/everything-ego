@@ -22,6 +22,8 @@ export const user = sqliteTable("user", {
   banExpires: integer("ban_expires", { mode: "timestamp_ms" }),
 });
 
+export const UserTable = typeof user.$inferSelect;
+
 export const session = sqliteTable(
   "session",
   {
@@ -43,6 +45,8 @@ export const session = sqliteTable(
   },
   (table) => [index("session_userId_idx").on(table.userId)],
 );
+
+export const SessionTable = typeof session.$inferSelect;
 
 export const account = sqliteTable(
   "account",
@@ -74,6 +78,8 @@ export const account = sqliteTable(
   (table) => [index("account_userId_idx").on(table.userId)],
 );
 
+export const AccountTable = account.$inferSelect;
+
 export const verification = sqliteTable(
   "verification",
   {
@@ -91,6 +97,8 @@ export const verification = sqliteTable(
   },
   (table) => [index("verification_identifier_idx").on(table.identifier)],
 );
+
+export type VerificationTable = typeof verification.$inferSelect;
 
 export const userRelations = relations(user, ({ many }) => ({
   sessions: many(session),

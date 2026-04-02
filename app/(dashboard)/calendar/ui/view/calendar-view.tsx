@@ -4,6 +4,9 @@ import { useState } from "react";
 
 import { cn } from "@/lib/utils";
 
+import { useTRPC } from "@/lib/trpc/components/client";
+import { useSuspenseQuery } from "@tanstack/react-query";
+
 import { Calendar, CalendarDayButton } from "@/components/ui/calendar";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
@@ -19,6 +22,10 @@ const LOCATIONS = [
 export default function CalendarView() {
   const [date, setDate] = useState<Date | undefined>(new Date());
 
+  const trpc = useTRPC();
+  const { data: schedule } = useSuspenseQuery(
+    trpc.calendar.getManySchedule.queryOptions(),
+  );
   return (
     <div>
       <Card className="mx-auto w-fit max-w-6xl rounded-lg p-0 shadow" size="sm">
@@ -57,7 +64,11 @@ export default function CalendarView() {
                   )}
                 >
                   <span>{children}</span>
-                  <div>Testing</div>
+                  {/* <div>
+                    {Object.entries(schedule).map((event) => (
+                      <div>{event}</div>
+                    ))}
+                  </div> */}
                 </CalendarDayButton>
               ),
             }}

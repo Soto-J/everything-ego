@@ -1,7 +1,7 @@
 import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
 import { sql } from "drizzle-orm";
 
-export const schedule = sqliteTable("schedule", {
+export const scheduleTableSchema = sqliteTable("schedule", {
   id: text("id").primaryKey(),
 
   location: text("location").notNull(),
@@ -18,3 +18,5 @@ export const schedule = sqliteTable("schedule", {
     .$onUpdate(() => /* @__PURE__ */ new Date())
     .notNull(),
 });
+
+export type ScheduleTable = typeof scheduleTableSchema.$inferSelect;

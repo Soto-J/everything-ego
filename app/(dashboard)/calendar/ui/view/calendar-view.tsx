@@ -29,7 +29,7 @@ export default function CalendarView() {
   return (
     <div>
       <Card className="mx-auto w-fit max-w-6xl rounded-lg p-0 shadow" size="sm">
-        <CardContent className="">
+        <CardContent>
           <Calendar
             mode="single"
             numberOfMonths={1}
@@ -81,7 +81,7 @@ export default function CalendarView() {
               <span
                 className={cn("size-2.5 shrink-0 rounded-full", location.color)}
               />
-              <span className="text-muted-foreground font-semibold">
+              <span className="text-muted-foreground text-base font-semibold">
                 {location.title}
               </span>
             </div>

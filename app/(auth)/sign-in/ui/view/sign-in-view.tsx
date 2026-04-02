@@ -7,6 +7,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 
+import { FcGoogle } from "react-icons/fc";
+
 import { authClient } from "@/lib/auth/auth-client";
 
 import FieldErrorMessage from "@/components/field-error-message";
@@ -175,7 +177,7 @@ export default function SignInView() {
                 type="button"
                 className="w-full"
               >
-                {/* <FaGoogle />  */} icon
+                <FcGoogle />
               </Button>
             </div>
           </form>

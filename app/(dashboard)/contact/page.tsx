@@ -1,3 +1,4 @@
+import { EnvelopeIcon, MapPinIcon } from "@phosphor-icons/react/dist/ssr";
 import ContactForm from "./components/contact-form";
 
 export default function ContactPage() {
@@ -31,19 +32,27 @@ export default function ContactPage() {
         </div>
 
         <div className="space-y-3 text-sm">
-          <div className="flex items-center gap-2">
-            <span className="text-background/90 text-xs">📍</span>
+          <div className="flex items-center gap-3">
+            <MapPinIcon
+              weight="light"
+              size={15}
+              className="text-background/60 shrink-0"
+            />
             <span className="text-background/70">New York City, NY</span>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-background/90 text-xs">✉</span>
+            <EnvelopeIcon
+              weight="light"
+              size={15}
+              className="text-background/60 shrink-0"
+            />
             <span className="text-background/70">info@everythingego.com</span>
           </div>
         </div>
       </div>
 
       {/* Right — form */}
-      <div className="flex flex-1 items-start p-10 lg:p-14">
+      <div className="flex flex-1 items-center justify-center p-10 lg:p-14">
         <ContactForm />
       </div>
     </div>
